@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import Genes from './components/Genes.vue'
+import Interface from './components/Interface.vue'
 
 </script>
 
 <template>
   <div>
-    <Genes />
+    <Interface />
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">

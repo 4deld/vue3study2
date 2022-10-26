@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import Genes from './Genes.vue'
+const Interfacecnt=ref<number>(0)
+
 const sampledata = [ //warrior mage acher
     [
         {
@@ -62,15 +65,19 @@ const sampledata = [ //warrior mage acher
 
 
 ]
-const cnt = ref(0)
-
+function callback(cnt:number) {
+    Interfacecnt.value=cnt
+}
 </script>
 
 <template>
     <div id="root">
-        <div id="skill_info" v-for="s in sampledata[0]">
-            <div id="skill_name">{{ s.name }}</div>
-            <div id="skill_resources">{{ s.resources }}</div>
+        <Genes @changecnt="(Genescnt)=>callback(Genescnt)"></Genes>
+        <div>
+            <div id="skill_info"  v-for="s in sampledata[Interfacecnt]">
+                <div id="skill_name">{{ s.name }}</div>
+                <div id="skill_resources">{{ s.resources }}</div>
+            </div>
         </div>
     </div>
 
@@ -80,7 +87,7 @@ const cnt = ref(0)
 #root {
     width: 30vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #skill_info {
