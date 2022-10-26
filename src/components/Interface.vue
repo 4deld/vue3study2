@@ -71,10 +71,10 @@ function callback(cnt:number) {
 </script>
 
 <template>
-    <div id="root">
+    <div id="interfaceroot">
         <Genes @changecnt="(Genescnt)=>callback(Genescnt)"></Genes>
         <div>
-            <div id="skill_info"  v-for="s in sampledata[Interfacecnt]">
+            <div id="skill_info" v-for="s in sampledata[Interfacecnt]">
                 <div id="skill_name">{{ s.name }}</div>
                 <div id="skill_resources">{{ s.resources }}</div>
             </div>
@@ -84,7 +84,7 @@ function callback(cnt:number) {
 </template>
 
 <style scoped>
-#root {
+#interfaceroot {
     width: 30vw;
     display: flex;
     flex-direction: row;
@@ -94,6 +94,7 @@ function callback(cnt:number) {
     width: 10vw;
     height: 5vh;
     display: flex;
+    flex-direction: row;
 }
 
 #skill_name {
