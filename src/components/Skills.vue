@@ -75,7 +75,6 @@ const { Skillscnt = 1 } = defineProps<Props>()
 
 <template>
     <div id="Skillsroot">
-        <div>1</div>
         <div id="skill_info" v-for="s in sampledata[Skillscnt]">
             <div id="skill_name">{{ s.name }}</div>
             <div id="skill_resources">{{ s.resources }}</div>
@@ -87,22 +86,23 @@ const { Skillscnt = 1 } = defineProps<Props>()
 #Skillsroot {
     display: flex;
     flex-direction: column;
-    width: 10vw;
-    height: 10vh;
 }
 
 #skill_info {
-    width: 10vw;
-    height: 5vh;
+    width: 16vw;
     display: flex;
     flex-direction: row;
+    font-size:1.5em;
+    border:0.05em solid black;
+    justify-content: center;
+    margin: 3%;
+    padding: 2% 0;
 }
 
 #skill_name {
-    padding: 5%;
+    padding-right: 3%;
 }
 
 #skill_resources {
-    padding: 5%;
 }
 </style>

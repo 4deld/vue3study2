@@ -10,11 +10,15 @@
 
 <style scoped>
 #mainviewroot{
+  width: 50vw;
+  height: 70vh;
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  align-items: center;
+  justify-content:space-around;
 }
 .btn{
-  width: 10vw;
+  font-size: 5em;
+  border:0.05em solid black;
 }
 </style>

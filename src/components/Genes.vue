@@ -34,7 +34,7 @@ onMounted(() => {
     width: 20vw;
     height: 70vh;
     padding: 10%;
-    margin-left: 10vw;
+    margin-left: 7vw;
 }
 
 </style>

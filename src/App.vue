@@ -9,10 +9,11 @@ import InterfaceView from './views/InterfaceView.vue'
     <div class="toplogo">
       <img class="logo" src="@/assets/logo.png" alt="">
     </div>
+    <img class="cogwheel" src="@/assets/cogwheel.png" alt="">
     <div class="components">
-      <InterfaceView />
+      <InterfaceView class="interfaceview" />
      <!-- <RouterLink to="/">Home</RouterLink> -->
-      <RouterView />
+      <RouterView class="routerview" />
     </div>
   </div>
 
@@ -27,6 +28,12 @@ import InterfaceView from './views/InterfaceView.vue'
 .logo {
   width: 20%;
 }
+.cogwheel{
+  position: fixed;
+  right: 0.4%;
+  top: 0.4%;
+  width: 5%;
+}
 .toplogo{
   display: flex;
   justify-content: center;
@@ -35,5 +42,14 @@ import InterfaceView from './views/InterfaceView.vue'
   width: 100vw;
   display: flex;
   flex-direction: row;
+}
+.interfaceview{
+  position: relative;
+  width: 50vw;
+}
+.routerview{
+  position: fixed;
+  right: 0;
+  width: 50vw;
 }
 </style>
