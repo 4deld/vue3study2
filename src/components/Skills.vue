@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import Genes from './Genes.vue'
-const Interfacecnt=ref<number>(0)
+import { ref, onMounted, watch } from 'vue'
+
+
 
 const sampledata = [ //warrior mage acher
     [
@@ -65,29 +65,30 @@ const sampledata = [ //warrior mage acher
 
 
 ]
-function callback(cnt:number) {
-    Interfacecnt.value=cnt
+
+
+interface Props {
+    Skillscnt?: number
 }
+const { Skillscnt = 1 } = defineProps<Props>()
 </script>
 
 <template>
-    <div id="interfaceroot">
-        <Genes @changecnt="(Genescnt)=>callback(Genescnt)"></Genes>
-        <div>
-            <div id="skill_info" v-for="s in sampledata[Interfacecnt]">
-                <div id="skill_name">{{ s.name }}</div>
-                <div id="skill_resources">{{ s.resources }}</div>
-            </div>
+    <div id="Skillsroot">
+        <div>1</div>
+        <div id="skill_info" v-for="s in sampledata[Skillscnt]">
+            <div id="skill_name">{{ s.name }}</div>
+            <div id="skill_resources">{{ s.resources }}</div>
         </div>
     </div>
-
 </template>
 
 <style scoped>
-#interfaceroot {
-    width: 30vw;
+#Skillsroot {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 10vw;
+    height: 10vh;
 }
 
 #skill_info {
@@ -105,4 +106,3 @@ function callback(cnt:number) {
     padding: 5%;
 }
 </style>
-

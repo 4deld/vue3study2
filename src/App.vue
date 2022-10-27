@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import Interface from './components/Interface.vue'
+import InterfaceView from './views/InterfaceView.vue'
 
 </script>
 
@@ -8,10 +8,9 @@ import Interface from './components/Interface.vue'
   <div id="root">
     <div class="toplogo">
       <img class="logo" src="@/assets/logo.png" alt="">
-
     </div>
     <div class="components">
-      <Interface />
+      <InterfaceView />
      <!-- <RouterLink to="/">Home</RouterLink> -->
       <RouterView />
     </div>

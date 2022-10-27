@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
-const cnt =ref(1) // get from DB
+const cnt =ref(2) // get from DB
 const GeneImg=ref("src/assets/Genes/Gene"+cnt.value+".png")
 const emit = defineEmits<{
     (e:'changecnt',value:number):void

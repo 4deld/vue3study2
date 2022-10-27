@@ -3,8 +3,8 @@
 
 <template>
   <div id="mainviewroot">
-    <div>Normal</div>
-    <div>Rank</div>
+    <div class="btn">Normal</div>
+    <div class="btn">Rank</div>
   </div>
 </template>
 
@@ -13,5 +13,8 @@
   display: flex;
   flex-direction: column;
   width: 50vw;
+}
+.btn{
+  width: 10vw;
 }
 </style>
