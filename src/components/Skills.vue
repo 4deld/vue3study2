@@ -75,10 +75,12 @@ const { Skillscnt = 1 } = defineProps<Props>()
 
 <template>
     <div id="Skillsroot">
-        <div id="skill_info" v-for="s in sampledata[Skillscnt]">
-            <div id="skill_name">{{ s.name }}</div>
-            <div id="skill_resources">{{ s.resources }}</div>
-        </div>
+        <div  v-for="s in sampledata[Skillscnt]">
+            <RouterLink to='/skillvideo' id="skill_info" >
+                <div id="skill_name">{{ s.name }}</div>
+                <div id="skill_resources">{{ s.resources }}</div>
+            </RouterLink>
+            </div>
     </div>
 </template>
 
@@ -89,11 +91,13 @@ const { Skillscnt = 1 } = defineProps<Props>()
 }
 
 #skill_info {
+    text-decoration: none;
+    color: black;
     width: 16vw;
     display: flex;
     flex-direction: row;
-    font-size:1.5em;
-    border:0.05em solid black;
+    font-size: 1.5em;
+    border: 0.05em solid black;
     justify-content: center;
     margin: 3%;
     padding: 2% 0;
@@ -104,5 +108,6 @@ const { Skillscnt = 1 } = defineProps<Props>()
 }
 
 #skill_resources {
+
 }
 </style>

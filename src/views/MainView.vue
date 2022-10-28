@@ -1,10 +1,22 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
+const emit = defineEmits<{
+    (e:'changephase',value:number):void
+}>()
+
+function NormalGame(){
+  emit('changephase',1)
+}
+function RankGame(){
+  emit('changephase',2)
+}
 </script>
 
 <template>
   <div id="mainviewroot">
-    <div class="btn">Normal</div>
-    <div class="btn">Rank</div>
+    <div @click="NormalGame()" class="btn">Normal</div>
+    <div @click="RankGame()" class="btn">Rank</div>
   </div>
 </template>
 
@@ -20,5 +32,6 @@
 .btn{
   font-size: 5em;
   border:0.05em solid black;
+  cursor: pointer;
 }
 </style>

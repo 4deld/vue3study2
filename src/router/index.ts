@@ -9,14 +9,19 @@ const router = createRouter({
       name: 'home',
       component: MainView
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: '/setting',
+      name: 'setting',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../components/Setting.vue')
+    },
+    {
+      path: '/skillvideo',
+      name: 'skillvideo',
+      component: () => import('../views/SkillVideoView.vue')
+    }
   ]
 })
 

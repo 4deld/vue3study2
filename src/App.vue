@@ -1,28 +1,65 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import InterfaceView from './views/InterfaceView.vue'
+import { ref, onMounted, watch } from 'vue'
 
+const settingbtnrouter = ref('/setting')
+const phase = ref(0)
+
+function routersetting(){
+  if(settingbtnrouter.value=='/'){
+    settingbtnrouter.value='/setting'
+  }
+  else{
+    settingbtnrouter.value='/'
+  }
+}
+function callback(cnt: number) {
+    phase.value = cnt
+}
 </script>
 
 <template>
-  <div id="root">
-    <div class="toplogo">
-      <img class="logo" src="@/assets/logo.png" alt="">
-    </div>
-    <img class="cogwheel" src="@/assets/cogwheel.png" alt="">
+  <div>
+    <div id="mainroot" v-if="phase==0">
+      <div class="toplogo">
+        <img class="logo" src="@/assets/logo.png" alt="">
+      </div>
+      <RouterLink :to=settingbtnrouter @click="routersetting()">
+      <img class="cogwheel" src="@/assets/cogwheel.png" alt="">
+    </RouterLink>
     <div class="components">
       <InterfaceView class="interfaceview" />
-     <!-- <RouterLink to="/">Home</RouterLink> -->
-      <RouterView class="routerview" />
+      <RouterView @changephase="(idx:number) => callback(idx)" class="routerview" />
     </div>
   </div>
+  <div id="normalroot" v-else-if="phase==1">
+    <div>
+      test
+    </div>
+  </div>  
+  <div id="rankroot" v-else-if="phase==2">
+    <div>
+      test2
+    </div>
+  </div>
+</div>
+
 
 </template>
 
 <style scoped>
-#root {
+#mainroot {
   display: flex;
   flex-direction: column;
+}
+
+#normalroot{
+  display: flex;
+  flex-direction: column;
+}
+#rankroot{
+
 }
 
 .logo {
