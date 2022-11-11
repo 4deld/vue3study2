@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
-
-const skillbtnrouter = ref('/')
-
+import { InterfaceVariable } from '@/stores/interfacevariable';
+import { storeToRefs } from "pinia";
+const store=InterfaceVariable()
+const {GeneCnt, CurrentVideo,Routeraddress}=storeToRefs(store);
 
 const sampledata = [ //warrior mage acher
     [
@@ -79,29 +80,27 @@ const sampledata = [ //warrior mage acher
 
 ]
 
-
-interface Props {
-    Skillscnt?: number
-}
-const { Skillscnt = 1 } = defineProps<Props>()
-
-function router() {
-    if (skillbtnrouter.value == '/') {
-        skillbtnrouter.value = '/skillvideo'
+function router(sn:number) {
+    if (Routeraddress.value == '/') {
+        Routeraddress.value = '/skillvideo'
     }
     else {
-        skillbtnrouter.value = '/'
+        CurrentVideo.value=sn
+        Routeraddress.value = '/'
     }
 }
-//watch skillcnt, s.number pinia로
+
+//watch skillscnt, s.number pinia로 해서 skillvideo에서 video 실행
+
 </script>
 
 <template>
     <div id="Skillsroot">
-        <div v-for="s in sampledata[Skillscnt]">
-            <RouterLink :to=skillbtnrouter @click="router()" id="skill_info">
+        <div v-for="s in sampledata[GeneCnt]">
+            <RouterLink :to=Routeraddress @click="router(s.number)" id="skill_info">
                 <div id="skill_name">{{ s.name }}</div>
                 <div id="skill_resources">{{ s.resources }}</div>
+                <div>{{s.number}}</div>
             </RouterLink>
         </div>
     </div>

@@ -2,17 +2,12 @@
 import { ref, onMounted } from 'vue'
 import Genes from '../components/Genes.vue'
 import Skills from '../components/Skills.vue'
-const Interfacecnt = ref<number>(0)
-
-function callback(cnt: number) {
-    Interfacecnt.value = cnt
-}
 </script>
 
 <template>
     <div id="interfaceroot">
-        <Genes @changecnt="(Genescnt) => callback(Genescnt)"></Genes>
-        <Skills :Skillscnt="Interfacecnt"></Skills>
+        <Genes></Genes>
+        <Skills></Skills>
     </div>
 
 </template>

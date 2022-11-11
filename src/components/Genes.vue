@@ -1,28 +1,23 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
-const cnt =ref(2) // get from DB
-const GeneImg=ref("src/assets/Genes/Gene"+cnt.value+".png")
-const emit = defineEmits<{
-    (e:'changecnt',value:number):void
-}>()
-
-function handleChangeCnt(){
-    cnt.value = (cnt.value+1)%3 //3 - TheNumberOfGenes
-}
-
-watch(cnt,()=>{
-    GeneImg.value=("src/assets/Genes/Gene"+cnt.value+".png")
-    emit('changecnt',cnt.value)
-})
-onMounted(() => {
-    emit('changecnt',cnt.value)
+import { InterfaceVariable } from '@/stores/interfacevariable';
+import { storeToRefs } from "pinia";
+const store=InterfaceVariable()
+const {GeneCnt,Routeraddress}=storeToRefs(store);
+const GeneImg=ref("src/assets/Genes/Gene"+GeneCnt.value+".png")
+watch(GeneCnt,()=>{
+    GeneImg.value=("src/assets/Genes/Gene"+GeneCnt.value+".png")
+    if(Routeraddress.value=='/'){
+        console.log(1)
+        Routeraddress.value='/'
+    }
 })
 
 </script>
 
 <template>
     <div id="Genesroot">
-        <img id="Gene" @click="handleChangeCnt()" :src=GeneImg alt="">
+        <img id="Gene" @click="store.changeGene()" :src=GeneImg alt="">
     </div>
 </template>
 
